@@ -90,6 +90,9 @@
         display: none;
         flex-direction: column;
         cursor: pointer;
+        background: transparent;
+        border: none;
+        padding: 5px;
     }
 
     .mobile-menu span {
@@ -719,6 +722,19 @@
 
         nav {
             display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 15, 0.98);
+            flex-direction: column;
+            padding: 20px;
+            gap: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        nav.mobile-open {
+            display: flex;
         }
 
         .mobile-menu {
@@ -767,7 +783,7 @@
 <!-- HEADER -->
 <header id="header">
     <div class="logo">CloudLux</div>
-    <nav>
+    <nav id="mainNav">
         <a href="#home">Home</a>
         <a href="#features">Features</a>
         <a href="#gallery">Gallery</a>
@@ -775,11 +791,11 @@
         <a href="#pricing">Pricing</a>
         <a href="#contact">Contact</a>
     </nav>
-    <div class="mobile-menu">
+    <button class="mobile-menu" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
-    </div>
+    </button>
 </header>
 
 <!-- HERO SECTION -->
@@ -788,7 +804,7 @@
         <h1>Transform Your Space with Cloud Ceiling Panels</h1>
         <p>Create a dreamy atmosphere with our luxury LED cloud ceilings. Perfect for modern homes, gaming rooms, and commercial spaces.</p>
         <div>
-            <a href="https://wa.me/0877296850" class="cta-button">Contact Us on WhatsApp</a>
+            <a href="https://wa.me/359877296850" class="cta-button">Contact Us on WhatsApp</a>
             <a href="#gallery" class="cta-button secondary">View Gallery</a>
         </div>
     </div>
@@ -905,7 +921,7 @@
                     <li>Sound-reactive option available</li>
                     <li>Perfect for streaming setups</li>
                 </ul>
-                <a href="https://wa.me/0877296850" class="cta-button">Get Quote on WhatsApp</a>
+                <a href="https://wa.me/359877296850" class="cta-button">Get Quote on WhatsApp</a>
             </div>
         </div>
         
@@ -920,7 +936,7 @@
                     <li>Adjustable brightness</li>
                     <li>Ideal for bedrooms and living rooms</li>
                 </ul>
-                <a href="https://wa.me/0877296850" class="cta-button">Get Quote on WhatsApp</a>
+                <a href="https://wa.me/359877296850" class="cta-button">Get Quote on WhatsApp</a>
             </div>
         </div>
         
@@ -935,7 +951,7 @@
                     <li>Smart home integration</li>
                     <li>App-controlled lighting</li>
                 </ul>
-                <a href="https://wa.me/0877296850" class="cta-button">Get Quote on WhatsApp</a>
+                <a href="https://wa.me/359877296850" class="cta-button">Get Quote on WhatsApp</a>
             </div>
         </div>
     </div>
@@ -958,7 +974,7 @@
                 <li>1-year warranty</li>
                 <li>Free consultation</li>
             </ul>
-            <a href="https://wa.me/0877296850" class="cta-button">Contact Us</a>
+            <a href="https://wa.me/359877296850" class="cta-button">Contact Us</a>
         </div>
         
         <div class="pricing-card featured">
@@ -973,7 +989,7 @@
                 <li>2-year warranty</li>
                 <li>Free design consultation</li>
             </ul>
-            <a href="https://wa.me/0877296850" class="cta-button">Contact Us</a>
+            <a href="https://wa.me/359877296850" class="cta-button">Contact Us</a>
         </div>
         
         <div class="pricing-card">
@@ -987,7 +1003,7 @@
                 <li>3-year warranty</li>
                 <li>Priority support</li>
             </ul>
-            <a href="https://wa.me/0877296850" class="cta-button">Contact Us</a>
+            <a href="https://wa.me/359877296850" class="cta-button">Contact Us</a>
         </div>
     </div>
 </section>
@@ -1071,7 +1087,7 @@
             <div class="whatsapp-icon">💬</div>
             <h3>Chat with Us on WhatsApp</h3>
             <p>Get instant quotes, ask questions, or schedule a consultation. We're here to help!</p>
-            <a href="https://wa.me/0877296850" class="whatsapp-button">Open WhatsApp Chat</a>
+            <a href="https://wa.me/359877296850" class="whatsapp-button">Open WhatsApp Chat</a>
         </div>
     </div>
 </section>
@@ -1085,7 +1101,7 @@
             <div class="social-links">
                 <a href="#" class="social-link">📘</a>
                 <a href="#" class="social-link">📸</a>
-                <a href="https://wa.me/0877296850" class="social-link">💬</a>
+                <a href="https://wa.me/359877296850" class="social-link">💬</a>
             </div>
         </div>
         
@@ -1111,7 +1127,7 @@
             <p>📱 WhatsApp: 0877296850</p>
             <p>📧 Email: info@cloudlux.com</p>
             <p>🕐 Mon-Sat: 9AM-6PM</p>
-            <a href="https://wa.me/0877296850" class="cta-button" style="margin-top: 20px;">Contact Us on WhatsApp</a>
+            <a href="https://wa.me/359877296850" class="cta-button" style="margin-top: 20px;">Contact Us on WhatsApp</a>
         </div>
     </div>
     
@@ -1180,12 +1196,31 @@
     });
 
     // Mobile menu toggle
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const nav = document.querySelector('nav');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mainNav = document.getElementById('mainNav');
     
-    mobileMenu.addEventListener('click', () => {
-        nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-    });
+    if (mobileMenuBtn && mainNav) {
+        mobileMenuBtn.addEventListener('click', () => {
+            const isOpen = mainNav.classList.toggle('mobile-open');
+            mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close mobile menu when clicking on a link
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('mobile-open');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Keyboard accessibility for mobile menu
+        mobileMenuBtn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                mobileMenuBtn.click();
+            }
+        });
+    }
 </script>
 
 </body>
