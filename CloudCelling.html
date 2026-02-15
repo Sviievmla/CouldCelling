@@ -9,71 +9,131 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
 
 <style>
+    :root {
+        --bg: #07070b;
+        --bg-soft: #11111a;
+        --glass: rgba(255, 255, 255, 0.08);
+        --line: rgba(255, 255, 255, 0.14);
+        --text: #ffffff;
+        --muted: #cfd3df;
+        --accent: #7dd3ff;
+        --accent-2: #a855f7;
+    }
+
     * {
         box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
     }
 
     body {
         margin: 0;
         font-family: 'Poppins', sans-serif;
-        background: #0a0a0d;
-        color: #fff;
+        background: radial-gradient(1200px 500px at 80% -10%, rgba(168, 85, 247, 0.2), transparent 60%),
+                    radial-gradient(900px 400px at 10% 0%, rgba(125, 211, 255, 0.18), transparent 60%),
+                    var(--bg);
+        color: var(--text);
         overflow-x: hidden;
+        line-height: 1.65;
     }
 
-    /* HEADER */
+    .container {
+        width: min(1200px, calc(100% - 32px));
+        margin-inline: auto;
+    }
+
     header {
         position: fixed;
         top: 0;
         width: 100%;
-        padding: 20px 40px;
+        padding: 18px 0;
+        z-index: 1000;
+        transition: 0.25s ease;
+    }
+
+    header.scrolled {
+        background: rgba(8, 8, 13, 0.72);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+    }
+
+    .header-row {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: rgba(0,0,0,0.45);
-        backdrop-filter: blur(12px);
-        z-index: 1000;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
+        gap: 18px;
+    }
+
+    .logo {
+        font-family: 'Playfair Display', serif;
+        font-size: 34px;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        line-height: 1;
+        background: linear-gradient(90deg, #7dd3ff, #a855f7, #f97316, #fb7185);
+        -webkit-background-clip: text;
+        color: transparent;
+        text-shadow: 0 0 25px rgba(255,255,255,0.25);
     }
 
     nav {
         display: flex;
         align-items: center;
-        gap: 25px;
-    }
-
-    /* LOGO */
-    .logo {
-        font-family: 'Playfair Display', serif;
-        font-size: 36px;
-        font-weight: 800;
-        letter-spacing: 2px;
-        background: linear-gradient(90deg, #7dd3ff, #a855f7, #f97316, #fb7185);
-        -webkit-background-clip: text;
-        color: transparent;
-        text-shadow: 0 0 25px rgba(255,255,255,0.3);
+        gap: 28px;
     }
 
     nav a {
-        margin-left: 0;
         text-decoration: none;
-        color: #ddd;
+        color: #e8ebf6;
         font-weight: 500;
-        transition: 0.3s;
+        font-size: 15px;
+        letter-spacing: 0.2px;
+        position: relative;
+        padding: 8px 0;
+        transition: color 0.25s ease;
+    }
+
+    nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        transition: width 0.25s ease;
     }
 
     nav a:hover {
-        color: #7dd3ff;
+        color: var(--accent);
     }
 
-    /* HERO */
+    nav a:hover::after {
+        width: 100%;
+    }
+
+    .menu-toggle {
+        display: none;
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+        color: #fff;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
     .hero {
-        height: 100vh;
+        min-height: 100svh;
         display: flex;
         align-items: center;
         justify-content: center;
         text-align: center;
-        padding: 20px;
+        padding: 120px 0 80px;
         position: relative;
         overflow: hidden;
         background-size: cover;
@@ -82,7 +142,14 @@
         background-image: none;
     }
 
-    /* CLOUD ANIMATION */
+    .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom, rgba(7, 7, 11, 0.45), rgba(7, 7, 11, 0.78));
+        z-index: 1;
+    }
+
     .clouds {
         position: absolute;
         top: -20%;
@@ -91,9 +158,10 @@
         height: 160%;
         background: none;
         background-size: cover;
-        filter: blur(8px) brightness(1.4) saturate(1.6);
-        opacity: 0.45;
-        animation: moveClouds 50s linear infinite;
+        filter: blur(10px) brightness(1.25) saturate(1.5);
+        opacity: 0.42;
+        animation: moveClouds 55s linear infinite;
+        z-index: 0;
     }
 
     @keyframes moveClouds {
@@ -101,110 +169,318 @@
         to { transform: translateX(-40%) scale(1.1); }
     }
 
-    .hero h1 {
-        font-size: 64px;
-        max-width: 900px;
+    .hero-content {
+        position: relative;
         z-index: 2;
-        text-shadow: 0 0 35px rgba(255,255,255,0.5);
+        width: min(920px, calc(100% - 32px));
+        margin-inline: auto;
+    }
+
+    .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.06);
+        border-radius: 999px;
+        padding: 7px 14px;
+        font-size: 13px;
+        color: #ebefff;
+        margin-bottom: 20px;
+        backdrop-filter: blur(6px);
+    }
+
+    .hero h1 {
+        margin: 0;
+        font-size: clamp(38px, 6vw, 68px);
+        text-shadow: 0 0 32px rgba(255,255,255,0.35);
         font-family: 'Playfair Display', serif;
+        line-height: 1.08;
     }
 
     .hero p {
-        font-size: 24px;
-        max-width: 650px;
-        margin: 20px auto 0;
-        z-index: 2;
-        opacity: 0.9;
+        font-size: clamp(17px, 2.5vw, 22px);
+        max-width: 760px;
+        margin: 22px auto 0;
+        color: #eef1ff;
+        opacity: 0.93;
     }
 
-    /* SECTIONS */
+    .cta-row {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 30px;
+    }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 22px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.25s ease;
+        border: 1px solid transparent;
+    }
+
+    .btn-primary {
+        color: #fff;
+        background: linear-gradient(120deg, #8fdfff, #b567ff);
+        box-shadow: 0 12px 30px rgba(130, 123, 255, 0.35);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 36px rgba(130, 123, 255, 0.45);
+    }
+
+    .btn-ghost {
+        color: #f3f5ff;
+        border-color: rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.06);
+    }
+
+    .btn-ghost:hover {
+        border-color: rgba(255, 255, 255, 0.55);
+        background: rgba(255, 255, 255, 0.1);
+    }
+
     section {
-        padding: 80px 20px;
-        max-width: 1200px;
-        margin: auto;
+        padding: 86px 0;
     }
 
     h2 {
         text-align: center;
-        margin-bottom: 40px;
-        font-size: 38px;
-        letter-spacing: 1px;
-        text-shadow: 0 0 20px rgba(255,255,255,0.2);
+        margin: 0 0 18px;
+        font-size: clamp(30px, 4.5vw, 44px);
+        letter-spacing: 0.6px;
+        text-shadow: 0 0 18px rgba(255,255,255,0.2);
         font-family: 'Playfair Display', serif;
     }
 
-    /* GALLERY */
+    .section-sub {
+        margin: 0 auto 34px;
+        text-align: center;
+        color: var(--muted);
+        max-width: 760px;
+    }
+
+    .glass-card {
+        background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 28px;
+        box-shadow: 0 16px 30px rgba(0,0,0,0.3);
+        backdrop-filter: blur(7px);
+    }
+
+    .features {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 22px;
+    }
+
+    .feature-item {
+        border-radius: 16px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+        padding: 16px;
+        font-size: 14px;
+        color: #e9edfb;
+    }
+
     .gallery {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 25px;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 18px;
     }
 
     .gallery img {
         width: 100%;
-        border-radius: 14px;
+        height: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+        border-radius: 16px;
         cursor: pointer;
-        transition: 0.3s;
-        box-shadow: 0 0 25px rgba(255,255,255,0.15);
+        transition: 0.25s ease;
+        box-shadow: 0 8px 22px rgba(0,0,0,0.35);
+        border: 1px solid rgba(255,255,255,0.12);
     }
 
     .gallery img:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 35px rgba(255,255,255,0.25);
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 14px 30px rgba(0,0,0,0.5);
     }
 
-    /* POPUP */
+    .contacts-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+
+    .contact-row {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .contact-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        background: linear-gradient(120deg, rgba(125,211,255,0.35), rgba(168,85,247,0.35));
+        display: grid;
+        place-items: center;
+        flex-shrink: 0;
+    }
+
+    .contact-title {
+        margin: 0 0 4px;
+        font-weight: 600;
+        color: #f2f5ff;
+    }
+
+    .contact-text {
+        margin: 0;
+        color: var(--muted);
+    }
+
     .popup {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0,0,0,0.85);
+        background: rgba(0,0,0,0.88);
         display: none;
         justify-content: center;
         align-items: center;
         z-index: 2000;
+        padding: 20px;
     }
 
     .popup img {
-        max-width: 90%;
-        max-height: 90%;
-        border-radius: 14px;
-        box-shadow: 0 0 40px rgba(255,255,255,0.3);
+        max-width: min(980px, 100%);
+        max-height: 90vh;
+        border-radius: 16px;
+        box-shadow: 0 0 45px rgba(255,255,255,0.24);
+    }
+
+    .popup-close {
+        position: absolute;
+        top: 18px;
+        right: 20px;
+        width: 42px;
+        height: 42px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,0.35);
+        color: #fff;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        font-size: 24px;
+        background: rgba(255,255,255,0.12);
     }
 
     footer {
         text-align: center;
-        padding: 40px;
-        color: #aaa;
-        margin-top: 40px;
+        padding: 28px 16px 40px;
+        color: #aeb4c8;
+        border-top: 1px solid var(--line);
+        margin-top: 30px;
     }
 
-    @media (max-width: 768px) {
-        header {
-            padding: 14px 16px;
-        }
+    .whatsapp-float {
+        position: fixed;
+        right: 18px;
+        bottom: 18px;
+        z-index: 999;
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        text-decoration: none;
+        color: #fff;
+        font-size: 24px;
+        background: #25d366;
+        box-shadow: 0 12px 26px rgba(37, 211, 102, 0.45);
+    }
 
-        .logo {
-            font-size: 26px;
-            letter-spacing: 1px;
+    @media (max-width: 900px) {
+        .menu-toggle {
+            display: inline-grid;
+            place-items: center;
         }
 
         nav {
-            gap: 12px;
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 16px;
+            left: 16px;
+            display: none;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 8px;
+            padding: 12px;
+            border-radius: 14px;
+            background: rgba(8, 8, 13, 0.92);
+            border: 1px solid var(--line);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 18px 35px rgba(0,0,0,0.45);
+        }
+
+        nav.open {
+            display: flex;
         }
 
         nav a {
-            font-size: 15px;
+            padding: 10px 8px;
+            border-radius: 10px;
         }
 
-        .hero h1 {
-            font-size: 42px;
+        nav a:hover {
+            background: rgba(255,255,255,0.06);
         }
 
-        .hero p {
-            font-size: 20px;
+        nav a::after {
+            display: none;
+        }
+
+        .contacts-grid {
+            grid-template-columns: 1fr;
+        }
+
+        section {
+            padding: 72px 0;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .logo {
+            font-size: 27px;
+            letter-spacing: 1px;
+        }
+
+        .hero {
+            padding-top: 104px;
+        }
+
+        .features {
+            grid-template-columns: 1fr;
+        }
+
+        .btn {
+            width: 100%;
+        }
+
+        .cta-row {
+            gap: 10px;
         }
     }
 </style>
@@ -212,63 +488,109 @@
 
 <body>
 
-<header>
-    <div class="logo">CloudLux</div>
-    <nav>
-        <a href="#usluga">Услуги</a>
-        <a href="#galeria">Галерия</a>
-        <a href="#kontakti">Контакти</a>
-    </nav>
+<header id="header">
+    <div class="container header-row">
+        <div class="logo">CloudLux</div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Отвори меню" aria-expanded="false">☰</button>
+        <nav id="mainNav">
+            <a href="#usluga">Услуги</a>
+            <a href="#galeria">Галерия</a>
+            <a href="#kontakti">Контакти</a>
+        </nav>
+    </div>
 </header>
 
 <div class="hero">
     <div class="clouds"></div>
-    <div>
+    <div class="hero-content">
+        <div class="badge">✨ Премиум дизайн • Професионален монтаж</div>
         <h1>Луксозни Облачни Тавани с Неонова Подсветка</h1>
-        <p>Потърсете ни за информация: <strong>0877 296 850</strong></p>
+        <p>Създаваме бутикова атмосфера за домове, студиа и бизнес пространства с внимателно подбран дизайн и прецизна изработка.</p>
+        <div class="cta-row">
+            <a class="btn btn-primary" href="https://wa.me/359877296850" target="_blank" rel="noopener">Запитване в WhatsApp</a>
+            <a class="btn btn-ghost" href="#galeria">Разгледай галерия</a>
+        </div>
     </div>
 </div>
 
 <section id="usluga">
-    <h2>Какво представлява облачният таван?</h2>
-    <p style="text-align:center; max-width:850px; margin:auto;">
-        Облачният таван е дизайнерско решение, което комбинира LED подсветка, специални материали и артистични техники,
-        за да създаде ефект на светещи, цветни облаци. Подходящ за луксозни домове, детски стаи, студиа, заведения
-        и интериори, които искат да впечатляват.
-    </p>
+    <div class="container">
+        <h2>Какво представляват нашите услуги?</h2>
+        <p class="section-sub">Проектираме и изграждаме авторски облачни тавани със стилна LED интеграция и внимание към всеки детайл.</p>
+        <div class="glass-card">
+            <p style="margin:0; color:#e9edfb;">
+                Облачният таван е дизайнерско решение, което комбинира висококачествени материали, LED подсветка и артистични техники,
+                за да създаде ефект на светещи цветни облаци. Подходящ е за луксозни домове, детски стаи, студиа, заведения и интериори,
+                които искат да впечатляват.
+            </p>
+            <div class="features">
+                <div class="feature-item">💡 Интелигентна LED подсветка</div>
+                <div class="feature-item">🎨 Индивидуална визия за всеки проект</div>
+                <div class="feature-item">🛠️ Професионален монтаж на място</div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <section id="galeria">
-    <h2>Галерия</h2>
-    <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="">
-        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36" alt="">
-        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85" alt="">
-        <img src="https://images.unsplash.com/photo-1520880867055-1e30d1cb001c" alt="">
+    <div class="container">
+        <h2>Галерия</h2>
+        <p class="section-sub">Подбрани реализации с различна атмосфера, цветови сценарии и осветление.</p>
+        <div class="gallery">
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="Луксозен интериор с неонова атмосфера">
+            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36" alt="Модерен хол с дизайнерско осветление">
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85" alt="Уютна стая с артистичен таван">
+            <img src="https://images.unsplash.com/photo-1520880867055-1e30d1cb001c" alt="Премиум интериор с облачен таван">
+        </div>
     </div>
 </section>
 
 <div class="popup" id="popup">
+    <span class="popup-close" id="popupClose">×</span>
     <img id="popupImg" src="">
 </div>
 
 <section id="kontakti">
-    <h2>Контакти</h2>
-    <p style="text-align:center;">
-        Телефон: <strong>0877 296 850</strong><br>
-        Email: <strong>cloudlux@example.com</strong>
-    </p>
+    <div class="container">
+        <h2>Контакти</h2>
+        <p class="section-sub">За запитване, оглед и персонална оферта се свържете с нас по удобен за вас начин.</p>
+        <div class="glass-card contacts-grid">
+            <div class="contact-row">
+                <div class="contact-icon">📱</div>
+                <div>
+                    <p class="contact-title">Телефон / WhatsApp</p>
+                    <p class="contact-text"><strong>0877 296 850</strong></p>
+                </div>
+            </div>
+            <div class="contact-row">
+                <div class="contact-icon">📧</div>
+                <div>
+                    <p class="contact-title">Email</p>
+                    <p class="contact-text"><strong>cloudlux@example.com</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="cta-row" style="margin-top: 22px;">
+            <a class="btn btn-primary" href="https://wa.me/359877296850" target="_blank" rel="noopener">Пиши ни сега</a>
+        </div>
+    </div>
 </section>
 
 <footer>
     © 2026 CloudLux – Луксозни Облачни Тавани
 </footer>
 
+<a class="whatsapp-float" href="https://wa.me/359877296850" target="_blank" rel="noopener" aria-label="Chat in WhatsApp">💬</a>
+
 <script>
     const popup = document.getElementById("popup");
     const popupImg = document.getElementById("popupImg");
+    const popupClose = document.getElementById("popupClose");
     const hero = document.querySelector(".hero");
     const clouds = document.querySelector(".clouds");
+    const header = document.getElementById("header");
+    const menuToggle = document.getElementById("menuToggle");
+    const mainNav = document.getElementById("mainNav");
 
     const imageCandidates = [
         "Cloud_Walls_Company_-_Cloud_Ceiling_Kit",
@@ -300,15 +622,52 @@
 
     setUserBackground();
 
+    window.addEventListener("scroll", () => {
+        header.classList.toggle("scrolled", window.scrollY > 10);
+    });
+
+    if (menuToggle && mainNav) {
+        menuToggle.addEventListener("click", () => {
+            const isOpen = mainNav.classList.toggle("open");
+            menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            menuToggle.textContent = isOpen ? "✕" : "☰";
+        });
+
+        mainNav.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                mainNav.classList.remove("open");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.textContent = "☰";
+            });
+        });
+    }
+
     document.querySelectorAll(".gallery img").forEach(img => {
         img.addEventListener("click", () => {
             popup.style.display = "flex";
             popupImg.src = img.src;
+            popupImg.alt = img.alt || "CloudLux gallery image";
         });
+    });
+
+    popupClose.addEventListener("click", (e) => {
+        e.stopPropagation();
+        popup.style.display = "none";
     });
 
     popup.addEventListener("click", () => {
         popup.style.display = "none";
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            popup.style.display = "none";
+            if (mainNav.classList.contains("open")) {
+                mainNav.classList.remove("open");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.textContent = "☰";
+            }
+        }
     });
 </script>
 
