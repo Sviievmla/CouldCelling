@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CloudLux Neon – Луксозни Облачни Тавани</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: #0a0a0d;
+        color: #fff;
+        overflow-x: hidden;
+    }
+
+    /* HEADER */
+    header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(0,0,0,0.45);
+        backdrop-filter: blur(12px);
+        z-index: 1000;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* LOGO */
+    .logo {
+        font-family: 'Playfair Display', serif;
+        font-size: 36px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        background: linear-gradient(90deg, #7dd3ff, #a855f7, #f97316, #fb7185);
+        -webkit-background-clip: text;
+        color: transparent;
+        text-shadow: 0 0 25px rgba(255,255,255,0.3);
+    }
+
+    nav a {
+        margin-left: 25px;
+        text-decoration: none;
+        color: #ddd;
+        font-weight: 500;
+        transition: 0.3s;
+    }
+
+    nav a:hover {
+        color: #7dd3ff;
+    }
+
+    /* HERO */
+    .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+        position: relative;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: none;
+    }
+
+    /* CLOUD ANIMATION */
+    .clouds {
+        position: absolute;
+        top: -20%;
+        left: -20%;
+        width: 160%;
+        height: 160%;
+        background: none;
+        background-size: cover;
+        filter: blur(8px) brightness(1.4) saturate(1.6);
+        opacity: 0.45;
+        animation: moveClouds 50s linear infinite;
+    }
+
+    @keyframes moveClouds {
+        from { transform: translateX(0) scale(1.1); }
+        to { transform: translateX(-40%) scale(1.1); }
+    }
+
+    .hero h1 {
+        font-size: 64px;
+        max-width: 900px;
+        z-index: 2;
+        text-shadow: 0 0 35px rgba(255,255,255,0.5);
+        font-family: 'Playfair Display', serif;
+    }
+
+    .hero p {
+        font-size: 24px;
+        max-width: 650px;
+        margin: 20px auto 0;
+        z-index: 2;
+        opacity: 0.9;
+    }
+
+    /* SECTIONS */
+    section {
+        padding: 80px 20px;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 38px;
+        letter-spacing: 1px;
+        text-shadow: 0 0 20px rgba(255,255,255,0.2);
+        font-family: 'Playfair Display', serif;
+    }
+
+    /* GALLERY */
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+
+    .gallery img {
+        width: 100%;
+        border-radius: 14px;
+        cursor: pointer;
+        transition: 0.3s;
+        box-shadow: 0 0 25px rgba(255,255,255,0.15);
+    }
+
+    .gallery img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 35px rgba(255,255,255,0.25);
+    }
+
+    /* POPUP */
+    .popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.85);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+    }
+
+    .popup img {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 14px;
+        box-shadow: 0 0 40px rgba(255,255,255,0.3);
+    }
+
+    footer {
+        text-align: center;
+        padding: 40px;
+        color: #aaa;
+        margin-top: 40px;
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">CloudLux Neon</div>
+    <nav>
+        <a href="#usluga">Услуга</a>
+        <a href="#galeria">Галерия</a>
+        <a href="#kontakti">Контакти</a>
+    </nav>
+</header>
+
+<div class="hero">
+    <div class="clouds"></div>
+    <div>
+        <h1>Луксозни Облачни Тавани с Неонова Подсветка</h1>
+        <p>Потърсете ни за информация: <strong>0877 296 850</strong></p>
+    </div>
+</div>
+
+<section id="usluga">
+    <h2>Какво представлява облачният таван?</h2>
+    <p style="text-align:center; max-width:850px; margin:auto;">
+        Облачният таван е дизайнерско решение, което комбинира LED подсветка, специални материали и артистични техники,
+        за да създаде ефект на светещи, цветни облаци. Подходящ за луксозни домове, детски стаи, студиа, заведения
+        и интериори, които искат да впечатляват.
+    </p>
+</section>
+
+<section id="galeria">
+    <h2>Галерия</h2>
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="">
+        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36" alt="">
+        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85" alt="">
+        <img src="https://images.unsplash.com/photo-1520880867055-1e30d1cb001c" alt="">
+    </div>
+</section>
+
+<div class="popup" id="popup">
+    <img id="popupImg" src="">
+</div>
+
+<section id="kontakti">
+    <h2>Контакти</h2>
+    <p style="text-align:center;">
+        Телефон: <strong>0877 296 850</strong><br>
+        Email: <strong>cloudlux@example.com</strong>
+    </p>
+</section>
+
+<footer>
+    © 2026 CloudLux Neon – Луксозни Облачни Тавани
+</footer>
+
+<script>
+    const popup = document.getElementById("popup");
+    const popupImg = document.getElementById("popupImg");
+    const hero = document.querySelector(".hero");
+    const clouds = document.querySelector(".clouds");
+
+    const imageCandidates = [
+        "Cloud_Walls_Company_-_Cloud_Ceiling_Kit",
+        "Cloud_Walls_Company_-_Cloud_Ceiling_Kit.jpg",
+        "Cloud_Walls_Company_-_Cloud_Ceiling_Kit.jpeg",
+        "Cloud_Walls_Company_-_Cloud_Ceiling_Kit.png",
+        "Cloud_Walls_Company_-_Cloud_Ceiling_Kit.webp"
+    ];
+
+    function applyHeroBackground(src) {
+        hero.style.backgroundImage = `url('${src}')`;
+        clouds.style.backgroundImage = `url('${src}')`;
+    }
+
+    function setUserBackground() {
+        const tryNext = (index) => {
+            if (index >= imageCandidates.length) return;
+
+            const testImg = new Image();
+            const src = imageCandidates[index];
+
+            testImg.onload = () => applyHeroBackground(src);
+            testImg.onerror = () => tryNext(index + 1);
+            testImg.src = src;
+        };
+
+        tryNext(0);
+    }
+
+    setUserBackground();
+
+    document.querySelectorAll(".gallery img").forEach(img => {
+        img.addEventListener("click", () => {
+            popup.style.display = "flex";
+            popupImg.src = img.src;
+        });
+    });
+
+    popup.addEventListener("click", () => {
+        popup.style.display = "none";
+    });
+</script>
+
+</body>
+</html>
