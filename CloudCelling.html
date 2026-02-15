@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CloudLux Ceilings – Облачни Тавани</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: #0d0d0f;
+        color: #fff;
+        overflow-x: hidden;
+    }
+
+    /* HEADER */
+    header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(0,0,0,0.5);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+    }
+
+    .logo {
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        background: linear-gradient(90deg, #7dd3ff, #c084fc, #f472b6);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    nav a {
+        margin-left: 25px;
+        text-decoration: none;
+        color: #ddd;
+        font-weight: 500;
+        transition: 0.3s;
+    }
+
+    nav a:hover {
+        color: #7dd3ff;
+    }
+
+    /* HERO SECTION */
+    .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* CLOUD ANIMATION */
+    .clouds {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 200%;
+        background: url('https://i.imgur.com/8K3J7QF.png');
+        background-size: cover;
+        opacity: 0.35;
+        animation: moveClouds 60s linear infinite;
+    }
+
+    @keyframes moveClouds {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
+    }
+
+    .hero h1 {
+        font-size: 60px;
+        max-width: 800px;
+        z-index: 2;
+        text-shadow: 0 0 25px rgba(255,255,255,0.4);
+    }
+
+    .hero p {
+        font-size: 22px;
+        max-width: 600px;
+        margin: 20px auto 0;
+        z-index: 2;
+    }
+
+    /* GALLERY */
+    section {
+        padding: 80px 20px;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 36px;
+        letter-spacing: 1px;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+
+    .gallery img {
+        width: 100%;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .gallery img:hover {
+        transform: scale(1.03);
+        box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    }
+
+    /* POPUP */
+    .popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+    }
+
+    .popup img {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 12px;
+    }
+
+    footer {
+        text-align: center;
+        padding: 40px;
+        color: #aaa;
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">CloudLux</div>
+    <nav>
+        <a href="#usluga">Услуга</a>
+        <a href="#galeria">Галерия</a>
+        <a href="#kontakti">Контакти</a>
+    </nav>
+</header>
+
+<div class="hero">
+    <div class="clouds"></div>
+    <div>
+        <h1>Луксозни Облачни Тавани с Подсветка</h1>
+        <p>Създаваме атмосфера, която превръща всяко помещение в магическо пространство.</p>
+    </div>
+</div>
+
+<section id="usluga">
+    <h2>Какво е облачен таван?</h2>
+    <p style="text-align:center; max-width:800px; margin:auto;">
+        Облачният таван е модерна дизайнерска иновация, която комбинира LED подсветка,
+        специални материали и артистичен подход, за да създаде ефект на истински светещи облаци.
+        Подходящ за луксозни домове, детски стаи, заведения, студиа и интериори с характер.
+    </p>
+</section>
+
+<section id="galeria">
+    <h2>Галерия</h2>
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="">
+        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36" alt="">
+        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85" alt="">
+        <img src="https://images.unsplash.com/photo-1520880867055-1e30d1cb001c" alt="">
+    </div>
+</section>
+
+<div class="popup" id="popup">
+    <img id="popupImg" src="">
+</div>
+
+<section id="kontakti">
+    <h2>Контакти</h2>
+    <p style="text-align:center;">
+        Телефон: <strong>0888 000 000</strong><br>
+        Email: <strong>cloudlux@example.com</strong>
+    </p>
+</section>
+
+<footer>
+    © 2026 CloudLux – Облачни Тавани
+</footer>
+
+<script>
+    const popup = document.getElementById("popup");
+    const popupImg = document.getElementById("popupImg");
+
+    document.querySelectorAll(".gallery img").forEach(img => {
+        img.addEventListener("click", () => {
+            popup.style.display = "flex";
+            popupImg.src = img.src;
+        });
+    });
+
+    popup.addEventListener("click", () => {
+        popup.style.display = "none";
+    });
+</script>
+
+</body>
+</html>
