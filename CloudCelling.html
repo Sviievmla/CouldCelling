@@ -1,24 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bg">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CloudLux Ceilings - Transform Your Space with Cloud Ceiling Panels</title>
-<meta name="description" content="Professional cloud ceiling panels installation. Transform any room into a dreamy space with our luxury LED cloud ceilings.">
+<title>CloudLux Neon – Луксозни Облачни Тавани</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
 
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
     body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: #0a0a0f;
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: #0a0a0d;
         color: #fff;
         overflow-x: hidden;
-        line-height: 1.6;
     }
 
     /* HEADER */
@@ -30,637 +26,121 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: rgba(10, 10, 15, 0.95);
-        backdrop-filter: blur(15px);
+        background: rgba(0,0,0,0.45);
+        backdrop-filter: blur(12px);
         z-index: 1000;
-        box-shadow: 0 2px 20px rgba(124, 58, 237, 0.3);
-        transition: all 0.3s ease;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
-    header.scrolled {
-        padding: 15px 40px;
-        background: rgba(10, 10, 15, 0.98);
-    }
-
+    /* LOGO */
     .logo {
-        font-size: 32px;
-        font-weight: 700;
+        font-family: 'Playfair Display', serif;
+        font-size: 36px;
+        font-weight: 800;
         letter-spacing: 2px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        background: linear-gradient(90deg, #7dd3ff, #a855f7, #f97316, #fb7185);
         -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
-    }
-
-    nav {
-        display: flex;
-        align-items: center;
-        gap: 30px;
+        color: transparent;
+        text-shadow: 0 0 25px rgba(255,255,255,0.3);
     }
 
     nav a {
+        margin-left: 25px;
         text-decoration: none;
-        color: #e0e0e0;
+        color: #ddd;
         font-weight: 500;
-        transition: all 0.3s ease;
-        position: relative;
-    }
-
-    nav a::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: linear-gradient(90deg, #667eea, #764ba2);
-        transition: width 0.3s ease;
-    }
-
-    nav a:hover {
-        color: #fff;
-    }
-
-    nav a:hover::after {
-        width: 100%;
-    }
-
-    .mobile-menu {
-        display: none;
-        flex-direction: column;
-        cursor: pointer;
-        background: transparent;
-        border: none;
-        padding: 5px;
-    }
-
-    .mobile-menu span {
-        width: 25px;
-        height: 3px;
-        background: #fff;
-        margin: 3px 0;
         transition: 0.3s;
     }
 
-    /* HERO SECTION */
+    nav a:hover {
+        color: #7dd3ff;
+    }
+
+    /* HERO */
     .hero {
-        min-height: 100vh;
+        height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
         text-align: center;
-        padding: 120px 20px 80px;
+        padding: 20px;
         position: relative;
         overflow: hidden;
-        background: linear-gradient(135deg, #1e1e2e 0%, #2d1b4e 50%, #1e1e2e 100%);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: none;
     }
 
-    .hero::before {
-        content: '';
+    /* CLOUD ANIMATION */
+    .clouds {
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: radial-gradient(circle at 20% 50%, rgba(124, 58, 237, 0.2) 0%, transparent 50%),
-                    radial-gradient(circle at 80% 80%, rgba(244, 114, 182, 0.2) 0%, transparent 50%);
-        animation: pulse 8s ease-in-out infinite;
+        top: -20%;
+        left: -20%;
+        width: 160%;
+        height: 160%;
+        background: none;
+        background-size: cover;
+        filter: blur(8px) brightness(1.4) saturate(1.6);
+        opacity: 0.45;
+        animation: moveClouds 50s linear infinite;
     }
 
-    @keyframes pulse {
-        0%, 100% { opacity: 0.5; }
-        50% { opacity: 1; }
-    }
-
-    .hero-content {
-        position: relative;
-        z-index: 2;
-        max-width: 900px;
+    @keyframes moveClouds {
+        from { transform: translateX(0) scale(1.1); }
+        to { transform: translateX(-40%) scale(1.1); }
     }
 
     .hero h1 {
         font-size: 64px;
-        font-weight: 700;
-        margin-bottom: 25px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: fadeInUp 1s ease;
+        max-width: 900px;
+        z-index: 2;
+        text-shadow: 0 0 35px rgba(255,255,255,0.5);
+        font-family: 'Playfair Display', serif;
     }
 
     .hero p {
         font-size: 24px;
-        color: #d0d0d0;
-        margin-bottom: 40px;
-        animation: fadeInUp 1.2s ease;
-    }
-
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    .cta-button {
-        display: inline-block;
-        padding: 18px 45px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: #fff;
-        text-decoration: none;
-        border-radius: 50px;
-        font-size: 18px;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-        animation: fadeInUp 1.4s ease;
-    }
-
-    .cta-button:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
-    }
-
-    .cta-button.secondary {
-        background: transparent;
-        border: 2px solid #667eea;
-        margin-left: 20px;
-    }
-
-    .cta-button.secondary:hover {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        max-width: 650px;
+        margin: 20px auto 0;
+        z-index: 2;
+        opacity: 0.9;
     }
 
     /* SECTIONS */
     section {
-        padding: 100px 20px;
-        max-width: 1400px;
-        margin: 0 auto;
-    }
-
-    section.dark {
-        background: #0d0d15;
+        padding: 80px 20px;
+        max-width: 1200px;
+        margin: auto;
     }
 
     h2 {
         text-align: center;
-        font-size: 48px;
-        margin-bottom: 20px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    .section-subtitle {
-        text-align: center;
-        font-size: 20px;
-        color: #b0b0b0;
-        margin-bottom: 60px;
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    /* FEATURES SECTION */
-    .features-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 40px;
-        margin-top: 60px;
-    }
-
-    .feature-card {
-        background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-        padding: 40px;
-        border-radius: 20px;
-        text-align: center;
-        transition: all 0.3s ease;
-        border: 1px solid rgba(102, 126, 234, 0.2);
-    }
-
-    .feature-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
-        border-color: rgba(102, 126, 234, 0.5);
-    }
-
-    .feature-icon {
-        font-size: 48px;
-        margin-bottom: 20px;
-    }
-
-    .feature-card h3 {
-        font-size: 24px;
-        margin-bottom: 15px;
-        color: #f093fb;
-    }
-
-    .feature-card p {
-        color: #c0c0c0;
-        line-height: 1.8;
+        margin-bottom: 40px;
+        font-size: 38px;
+        letter-spacing: 1px;
+        text-shadow: 0 0 20px rgba(255,255,255,0.2);
+        font-family: 'Playfair Display', serif;
     }
 
     /* GALLERY */
     .gallery {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        margin-top: 60px;
-    }
-
-    .gallery-item {
-        position: relative;
-        overflow: hidden;
-        border-radius: 20px;
-        cursor: pointer;
-        aspect-ratio: 4/3;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
     }
 
     .gallery img {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.5s ease;
+        border-radius: 14px;
+        cursor: pointer;
+        transition: 0.3s;
+        box-shadow: 0 0 25px rgba(255,255,255,0.15);
     }
 
-    .gallery-item:hover img {
-        transform: scale(1.1);
-    }
-
-    .gallery-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.8) 100%);
-        display: flex;
-        align-items: flex-end;
-        padding: 20px;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
-    .gallery-item:hover .gallery-overlay {
-        opacity: 1;
-    }
-
-    .gallery-overlay p {
-        color: #fff;
-        font-size: 18px;
-        font-weight: 500;
-    }
-
-    /* PRODUCT SHOWCASE */
-    .products-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 40px;
-        margin-top: 60px;
-    }
-
-    .product-card {
-        background: linear-gradient(135deg, rgba(30, 30, 46, 0.8) 0%, rgba(45, 27, 78, 0.8) 100%);
-        border-radius: 20px;
-        overflow: hidden;
-        transition: all 0.3s ease;
-        border: 1px solid rgba(102, 126, 234, 0.2);
-    }
-
-    .product-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 50px rgba(102, 126, 234, 0.4);
-    }
-
-    .product-image {
-        width: 100%;
-        height: 250px;
-        object-fit: cover;
-    }
-
-    .product-content {
-        padding: 30px;
-    }
-
-    .product-card h3 {
-        font-size: 26px;
-        margin-bottom: 15px;
-        color: #f093fb;
-    }
-
-    .product-card p {
-        color: #c0c0c0;
-        margin-bottom: 20px;
-        line-height: 1.8;
-    }
-
-    .product-features {
-        list-style: none;
-        margin-bottom: 25px;
-    }
-
-    .product-features li {
-        padding: 8px 0;
-        color: #b0b0b0;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .product-features li::before {
-        content: '✓ ';
-        color: #667eea;
-        font-weight: bold;
-        margin-right: 10px;
-    }
-
-    /* PRICING */
-    .pricing-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 40px;
-        margin-top: 60px;
-    }
-
-    .pricing-card {
-        background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-        border: 2px solid rgba(102, 126, 234, 0.3);
-        border-radius: 20px;
-        padding: 40px;
-        text-align: center;
-        transition: all 0.3s ease;
-    }
-
-    .pricing-card.featured {
-        border-color: #667eea;
+    .gallery img:hover {
         transform: scale(1.05);
-        background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
-    }
-
-    .pricing-card:hover {
-        transform: translateY(-10px) scale(1.02);
-        box-shadow: 0 20px 50px rgba(102, 126, 234, 0.4);
-    }
-
-    .pricing-badge {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: #fff;
-        padding: 5px 15px;
-        border-radius: 20px;
-        font-size: 14px;
-        font-weight: 600;
-        display: inline-block;
-        margin-bottom: 20px;
-    }
-
-    .pricing-card h3 {
-        font-size: 28px;
-        margin-bottom: 20px;
-        color: #f093fb;
-    }
-
-    .price {
-        font-size: 48px;
-        font-weight: 700;
-        margin-bottom: 10px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    .price-note {
-        color: #888;
-        font-size: 14px;
-        margin-bottom: 30px;
-    }
-
-    /* TESTIMONIALS */
-    .testimonials-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 40px;
-        margin-top: 60px;
-    }
-
-    .testimonial-card {
-        background: linear-gradient(135deg, rgba(30, 30, 46, 0.8) 0%, rgba(45, 27, 78, 0.8) 100%);
-        padding: 40px;
-        border-radius: 20px;
-        border: 1px solid rgba(102, 126, 234, 0.2);
-        transition: all 0.3s ease;
-    }
-
-    .testimonial-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
-    }
-
-    .testimonial-text {
-        font-size: 18px;
-        line-height: 1.8;
-        color: #d0d0d0;
-        margin-bottom: 25px;
-        font-style: italic;
-    }
-
-    .testimonial-author {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .author-avatar {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px;
-        font-weight: 700;
-    }
-
-    .author-info h4 {
-        color: #f093fb;
-        font-size: 18px;
-        margin-bottom: 5px;
-    }
-
-    .author-info p {
-        color: #888;
-        font-size: 14px;
-    }
-
-    /* CONTACT SECTION */
-    .contact-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 60px;
-        align-items: center;
-        margin-top: 60px;
-    }
-
-    .contact-info h3 {
-        font-size: 32px;
-        margin-bottom: 30px;
-        color: #f093fb;
-    }
-
-    .contact-item {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        margin-bottom: 30px;
-        padding: 20px;
-        background: rgba(102, 126, 234, 0.1);
-        border-radius: 15px;
-        transition: all 0.3s ease;
-    }
-
-    .contact-item:hover {
-        background: rgba(102, 126, 234, 0.2);
-        transform: translateX(10px);
-    }
-
-    .contact-icon {
-        font-size: 32px;
-        width: 60px;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        border-radius: 50%;
-    }
-
-    .contact-details h4 {
-        font-size: 18px;
-        color: #f093fb;
-        margin-bottom: 5px;
-    }
-
-    .contact-details p {
-        color: #d0d0d0;
-        font-size: 20px;
-        font-weight: 600;
-    }
-
-    .whatsapp-section {
-        background: linear-gradient(135deg, rgba(37, 211, 102, 0.2) 0%, rgba(102, 126, 234, 0.2) 100%);
-        padding: 40px;
-        border-radius: 20px;
-        text-align: center;
-        border: 2px solid rgba(37, 211, 102, 0.3);
-    }
-
-    .whatsapp-icon {
-        font-size: 80px;
-        margin-bottom: 20px;
-    }
-
-    .whatsapp-section h3 {
-        font-size: 28px;
-        margin-bottom: 15px;
-        color: #25d366;
-    }
-
-    .whatsapp-section p {
-        color: #d0d0d0;
-        margin-bottom: 30px;
-        font-size: 18px;
-    }
-
-    .whatsapp-button {
-        display: inline-block;
-        padding: 18px 45px;
-        background: #25d366;
-        color: #fff;
-        text-decoration: none;
-        border-radius: 50px;
-        font-size: 18px;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
-    }
-
-    .whatsapp-button:hover {
-        background: #20ba5a;
-        transform: translateY(-3px);
-        box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6);
-    }
-
-    /* FOOTER */
-    footer {
-        background: #0a0a0f;
-        padding: 60px 20px 30px;
-        border-top: 1px solid rgba(102, 126, 234, 0.2);
-    }
-
-    .footer-content {
-        max-width: 1400px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 40px;
-        margin-bottom: 40px;
-    }
-
-    .footer-section h3 {
-        font-size: 22px;
-        margin-bottom: 20px;
-        color: #f093fb;
-    }
-
-    .footer-section p,
-    .footer-section a {
-        color: #b0b0b0;
-        text-decoration: none;
-        display: block;
-        margin-bottom: 10px;
-        transition: color 0.3s ease;
-    }
-
-    .footer-section a:hover {
-        color: #667eea;
-    }
-
-    .footer-bottom {
-        text-align: center;
-        padding-top: 30px;
-        border-top: 1px solid rgba(255,255,255,0.1);
-        color: #888;
-    }
-
-    .social-links {
-        display: flex;
-        gap: 15px;
-        margin-top: 20px;
-    }
-
-    .social-link {
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(102, 126, 234, 0.2);
-        border-radius: 50%;
-        color: #fff;
-        text-decoration: none;
-        font-size: 20px;
-        transition: all 0.3s ease;
-    }
-
-    .social-link:hover {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        transform: translateY(-3px);
+        box-shadow: 0 0 35px rgba(255,255,255,0.25);
     }
 
     /* POPUP */
@@ -670,557 +150,129 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.95);
+        background: rgba(0,0,0,0.85);
         display: none;
         justify-content: center;
         align-items: center;
         z-index: 2000;
-        backdrop-filter: blur(10px);
-    }
-
-    .popup.active {
-        display: flex;
-    }
-
-    .popup-content {
-        position: relative;
-        max-width: 90%;
-        max-height: 90%;
     }
 
     .popup img {
-        max-width: 100%;
-        max-height: 90vh;
-        border-radius: 20px;
-        box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 14px;
+        box-shadow: 0 0 40px rgba(255,255,255,0.3);
     }
 
-    .popup-close {
-        position: absolute;
-        top: -40px;
-        right: 0;
-        color: #fff;
-        font-size: 40px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-
-    .popup-close:hover {
-        color: #667eea;
-        transform: rotate(90deg);
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-        header {
-            padding: 15px 20px;
-        }
-
-        .logo {
-            font-size: 24px;
-        }
-
-        nav {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: rgba(10, 10, 15, 0.98);
-            flex-direction: column;
-            padding: 20px;
-            gap: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        nav.mobile-open {
-            display: flex;
-        }
-
-        .mobile-menu {
-            display: flex;
-        }
-
-        .hero h1 {
-            font-size: 40px;
-        }
-
-        .hero p {
-            font-size: 18px;
-        }
-
-        h2 {
-            font-size: 36px;
-        }
-
-        .cta-button.secondary {
-            margin-left: 0;
-            margin-top: 15px;
-        }
-
-        .contact-container {
-            grid-template-columns: 1fr;
-        }
-
-        .footer-content {
-            grid-template-columns: 1fr;
-        }
-
-        section {
-            padding: 60px 20px;
-        }
-    }
-
-    /* SMOOTH SCROLL */
-    html {
-        scroll-behavior: smooth;
+    footer {
+        text-align: center;
+        padding: 40px;
+        color: #aaa;
+        margin-top: 40px;
     }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header id="header">
-    <div class="logo">CloudLux</div>
-    <nav id="mainNav">
-        <a href="#home">Home</a>
-        <a href="#features">Features</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#products">Products</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Contact</a>
+<header>
+    <div class="logo">CloudLux Neon</div>
+    <nav>
+        <a href="#usluga">Услуга</a>
+        <a href="#galeria">Галерия</a>
+        <a href="#kontakti">Контакти</a>
     </nav>
-    <button class="mobile-menu" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
 </header>
 
-<!-- HERO SECTION -->
-<section class="hero" id="home">
-    <div class="hero-content">
-        <h1>Transform Your Space with Cloud Ceiling Panels</h1>
-        <p>Create a dreamy atmosphere with our luxury LED cloud ceilings. Perfect for modern homes, gaming rooms, and commercial spaces.</p>
-        <div>
-            <a href="https://wa.me/359877296850" class="cta-button">Contact Us on WhatsApp</a>
-            <a href="#gallery" class="cta-button secondary">View Gallery</a>
-        </div>
-    </div>
-</section>
-
-<!-- FEATURES SECTION -->
-<section id="features">
-    <h2>Why Choose Cloud Ceiling Panels?</h2>
-    <p class="section-subtitle">Transform any room into a magical space with our innovative cloud ceiling technology</p>
-    
-    <div class="features-grid">
-        <div class="feature-card">
-            <div class="feature-icon">✨</div>
-            <h3>Stunning Visual Effect</h3>
-            <p>Create a mesmerizing cloud atmosphere with realistic textures and LED lighting that brings your ceiling to life.</p>
-        </div>
-        
-        <div class="feature-card">
-            <div class="feature-icon">💡</div>
-            <h3>Customizable LED Lighting</h3>
-            <p>Choose from various colors and brightness levels. RGB options available for dynamic color-changing effects.</p>
-        </div>
-        
-        <div class="feature-card">
-            <div class="feature-icon">🎨</div>
-            <h3>Professional Design</h3>
-            <p>Each installation is custom-designed to match your space perfectly, creating a unique and personalized look.</p>
-        </div>
-        
-        <div class="feature-card">
-            <div class="feature-icon">🏠</div>
-            <h3>Versatile Applications</h3>
-            <p>Perfect for bedrooms, gaming rooms, living rooms, restaurants, offices, and entertainment venues.</p>
-        </div>
-        
-        <div class="feature-card">
-            <div class="feature-icon">⚡</div>
-            <h3>Energy Efficient</h3>
-            <p>Modern LED technology provides beautiful lighting while keeping energy costs low and environmentally friendly.</p>
-        </div>
-        
-        <div class="feature-card">
-            <div class="feature-icon">🛠️</div>
-            <h3>Professional Installation</h3>
-            <p>Our expert team handles everything from design consultation to final installation with attention to detail.</p>
-        </div>
-    </div>
-</section>
-
-<!-- GALLERY SECTION -->
-<section id="gallery" class="dark">
-    <h2>Our Cloud Ceiling Gallery</h2>
-    <p class="section-subtitle">Browse our stunning collection of cloud ceiling installations</p>
-    
-    <div class="gallery">
-        <div class="gallery-item" data-image="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800">
-            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800" alt="Gaming setup with pink and purple cloud ceiling">
-            <div class="gallery-overlay">
-                <p>Gaming Room Paradise</p>
-            </div>
-        </div>
-        
-        <div class="gallery-item" data-image="https://images.unsplash.com/photo-1534088568595-a066f410bcda?w=800">
-            <img src="https://images.unsplash.com/photo-1534088568595-a066f410bcda?w=800" alt="White fluffy clouds ceiling">
-            <div class="gallery-overlay">
-                <p>Classic White Clouds</p>
-            </div>
-        </div>
-        
-        <div class="gallery-item" data-image="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800">
-            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800" alt="Colorful cloud ceiling in modern living room">
-            <div class="gallery-overlay">
-                <p>Vibrant Living Space</p>
-            </div>
-        </div>
-        
-        <div class="gallery-item" data-image="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800">
-            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800" alt="Purple and blue cloud ceiling">
-            <div class="gallery-overlay">
-                <p>Purple Dream Ceiling</p>
-            </div>
-        </div>
-        
-        <div class="gallery-item" data-image="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800">
-            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800" alt="Modern bedroom with cloud ceiling">
-            <div class="gallery-overlay">
-                <p>Bedroom Serenity</p>
-            </div>
-        </div>
-        
-        <div class="gallery-item" data-image="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800">
-            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800" alt="Restaurant with atmospheric cloud ceiling">
-            <div class="gallery-overlay">
-                <p>Commercial Installation</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- PRODUCT SHOWCASE -->
-<section id="products">
-    <h2>Our Product Range</h2>
-    <p class="section-subtitle">Choose the perfect cloud ceiling solution for your space</p>
-    
-    <div class="products-grid">
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=400" alt="Gaming Cloud Ceiling" class="product-image">
-            <div class="product-content">
-                <h3>Gaming Cloud Ceiling</h3>
-                <p>Transform your gaming room with dynamic RGB cloud panels featuring customizable colors and effects.</p>
-                <ul class="product-features">
-                    <li>RGB LED strips with remote control</li>
-                    <li>Multiple color modes and effects</li>
-                    <li>Sound-reactive option available</li>
-                    <li>Perfect for streaming setups</li>
-                </ul>
-                <a href="https://wa.me/359877296850" class="cta-button">Get Quote on WhatsApp</a>
-            </div>
-        </div>
-        
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1534088568595-a066f410bcda?w=400" alt="Classic Cloud Ceiling" class="product-image">
-            <div class="product-content">
-                <h3>Classic White Clouds</h3>
-                <p>Elegant white cloud panels with soft warm LED lighting for a sophisticated and calming atmosphere.</p>
-                <ul class="product-features">
-                    <li>Soft white LED lighting</li>
-                    <li>Natural cloud texture</li>
-                    <li>Adjustable brightness</li>
-                    <li>Ideal for bedrooms and living rooms</li>
-                </ul>
-                <a href="https://wa.me/359877296850" class="cta-button">Get Quote on WhatsApp</a>
-            </div>
-        </div>
-        
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400" alt="Premium Cloud Ceiling" class="product-image">
-            <div class="product-content">
-                <h3>Premium Multicolor</h3>
-                <p>Our flagship product featuring premium materials and advanced LED systems for stunning visual effects.</p>
-                <ul class="product-features">
-                    <li>Premium cloud materials</li>
-                    <li>Full RGB spectrum control</li>
-                    <li>Smart home integration</li>
-                    <li>App-controlled lighting</li>
-                </ul>
-                <a href="https://wa.me/359877296850" class="cta-button">Get Quote on WhatsApp</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- PRICING SECTION -->
-<section id="pricing" class="dark">
-    <h2>Pricing Options</h2>
-    <p class="section-subtitle">Transparent pricing for every budget and space size</p>
-    
-    <div class="pricing-container">
-        <div class="pricing-card">
-            <h3>Basic Package</h3>
-            <div class="price">From $299</div>
-            <p class="price-note">Per square meter</p>
-            <ul class="product-features">
-                <li>Basic cloud panels</li>
-                <li>White LED lighting</li>
-                <li>Standard installation</li>
-                <li>1-year warranty</li>
-                <li>Free consultation</li>
-            </ul>
-            <a href="https://wa.me/359877296850" class="cta-button">Contact Us</a>
-        </div>
-        
-        <div class="pricing-card featured">
-            <div class="pricing-badge">MOST POPULAR</div>
-            <h3>Premium Package</h3>
-            <div class="price">From $499</div>
-            <p class="price-note">Per square meter</p>
-            <ul class="product-features">
-                <li>Premium cloud materials</li>
-                <li>RGB LED system</li>
-                <li>Remote control included</li>
-                <li>2-year warranty</li>
-                <li>Free design consultation</li>
-            </ul>
-            <a href="https://wa.me/359877296850" class="cta-button">Contact Us</a>
-        </div>
-        
-        <div class="pricing-card">
-            <h3>Luxury Package</h3>
-            <div class="price">From $799</div>
-            <p class="price-note">Per square meter</p>
-            <ul class="product-features">
-                <li>Premium materials</li>
-                <li>Smart RGB LED system</li>
-                <li>App control + voice assistant</li>
-                <li>3-year warranty</li>
-                <li>Priority support</li>
-            </ul>
-            <a href="https://wa.me/359877296850" class="cta-button">Contact Us</a>
-        </div>
-    </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section id="testimonials">
-    <h2>What Our Clients Say</h2>
-    <p class="section-subtitle">Real experiences from satisfied customers</p>
-    
-    <div class="testimonials-grid">
-        <div class="testimonial-card">
-            <p class="testimonial-text">"The cloud ceiling in my gaming room is absolutely incredible! The RGB lighting creates the perfect atmosphere for streaming. Professional installation and stunning results!"</p>
-            <div class="testimonial-author">
-                <div class="author-avatar">M</div>
-                <div class="author-info">
-                    <h4>Michael Chen</h4>
-                    <p>Gaming Room Installation</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="testimonial-card">
-            <p class="testimonial-text">"We installed cloud ceilings in our restaurant and the ambiance is phenomenal. Our customers love it and it's become a signature feature of our space."</p>
-            <div class="testimonial-author">
-                <div class="author-avatar">S</div>
-                <div class="author-info">
-                    <h4>Sarah Johnson</h4>
-                    <p>Restaurant Owner</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="testimonial-card">
-            <p class="testimonial-text">"The white cloud ceiling in my bedroom creates such a peaceful atmosphere. It's like sleeping under real clouds. Best investment for my home!"</p>
-            <div class="testimonial-author">
-                <div class="author-avatar">E</div>
-                <div class="author-info">
-                    <h4>Emma Williams</h4>
-                    <p>Residential Client</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- CONTACT SECTION -->
-<section id="contact" class="dark">
-    <h2>Get In Touch</h2>
-    <p class="section-subtitle">Ready to transform your space? Contact us today for a free consultation</p>
-    
-    <div class="contact-container">
-        <div class="contact-info">
-            <h3>Contact Information</h3>
-            
-            <div class="contact-item">
-                <div class="contact-icon">📱</div>
-                <div class="contact-details">
-                    <h4>Phone / WhatsApp</h4>
-                    <p>0877296850</p>
-                </div>
-            </div>
-            
-            <div class="contact-item">
-                <div class="contact-icon">📧</div>
-                <div class="contact-details">
-                    <h4>Email</h4>
-                    <p>info@cloudlux.com</p>
-                </div>
-            </div>
-            
-            <div class="contact-item">
-                <div class="contact-icon">📍</div>
-                <div class="contact-details">
-                    <h4>Service Area</h4>
-                    <p>Nationwide Installation</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="whatsapp-section">
-            <div class="whatsapp-icon">💬</div>
-            <h3>Chat with Us on WhatsApp</h3>
-            <p>Get instant quotes, ask questions, or schedule a consultation. We're here to help!</p>
-            <a href="https://wa.me/359877296850" class="whatsapp-button">Open WhatsApp Chat</a>
-        </div>
-    </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-    <div class="footer-content">
-        <div class="footer-section">
-            <h3>CloudLux Ceilings</h3>
-            <p>Transform your space with our premium cloud ceiling panels. Professional installation and exceptional quality.</p>
-            <div class="social-links">
-                <a href="#" class="social-link">📘</a>
-                <a href="#" class="social-link">📸</a>
-                <a href="https://wa.me/359877296850" class="social-link">💬</a>
-            </div>
-        </div>
-        
-        <div class="footer-section">
-            <h3>Quick Links</h3>
-            <a href="#home">Home</a>
-            <a href="#features">Features</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#products">Products</a>
-            <a href="#pricing">Pricing</a>
-        </div>
-        
-        <div class="footer-section">
-            <h3>Services</h3>
-            <a href="#products">Cloud Ceiling Installation</a>
-            <a href="#pricing">Custom Design</a>
-            <a href="#contact">Free Consultation</a>
-            <a href="#contact">Maintenance Services</a>
-        </div>
-        
-        <div class="footer-section">
-            <h3>Contact</h3>
-            <p>📱 WhatsApp: 0877296850</p>
-            <p>📧 Email: info@cloudlux.com</p>
-            <p>🕐 Mon-Sat: 9AM-6PM</p>
-            <a href="https://wa.me/359877296850" class="cta-button" style="margin-top: 20px;">Contact Us on WhatsApp</a>
-        </div>
-    </div>
-    
-    <div class="footer-bottom">
-        <p>&copy; 2026 CloudLux Ceilings. All rights reserved. | Transform Your Space with Cloud Ceiling Panels</p>
-    </div>
-</footer>
-
-<!-- IMAGE POPUP -->
-<div class="popup" id="popup">
-    <div class="popup-content">
-        <span class="popup-close" id="popupClose">&times;</span>
-        <img id="popupImg" src="" alt="Gallery Image">
+<div class="hero">
+    <div class="clouds"></div>
+    <div>
+        <h1>Луксозни Облачни Тавани с Неонова Подсветка</h1>
+        <p>Потърсете ни за информация: <strong>0877 296 850</strong></p>
     </div>
 </div>
 
-<script>
-    // Header scroll effect
-    window.addEventListener('scroll', () => {
-        const header = document.getElementById('header');
-        if (window.scrollY > 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
+<section id="usluga">
+    <h2>Какво представлява облачният таван?</h2>
+    <p style="text-align:center; max-width:850px; margin:auto;">
+        Облачният таван е дизайнерско решение, което комбинира LED подсветка, специални материали и артистични техники,
+        за да създаде ефект на светещи, цветни облаци. Подходящ за луксозни домове, детски стаи, студиа, заведения
+        и интериори, които искат да впечатляват.
+    </p>
+</section>
 
-    // Gallery popup
-    const popup = document.getElementById('popup');
-    const popupImg = document.getElementById('popupImg');
-    const popupClose = document.getElementById('popupClose');
-    
-    document.querySelectorAll('.gallery-item').forEach(item => {
-        item.addEventListener('click', () => {
-            const img = item.querySelector('img');
-            popup.classList.add('active');
+<section id="galeria">
+    <h2>Галерия</h2>
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="">
+        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36" alt="">
+        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85" alt="">
+        <img src="https://images.unsplash.com/photo-1520880867055-1e30d1cb001c" alt="">
+    </div>
+</section>
+
+<div class="popup" id="popup">
+    <img id="popupImg" src="">
+</div>
+
+<section id="kontakti">
+    <h2>Контакти</h2>
+    <p style="text-align:center;">
+        Телефон: <strong>0877 296 850</strong><br>
+        Email: <strong>cloudlux@example.com</strong>
+    </p>
+</section>
+
+<footer>
+    © 2026 CloudLux Neon – Луксозни Облачни Тавани
+</footer>
+
+<script>
+    const popup = document.getElementById("popup");
+    const popupImg = document.getElementById("popupImg");
+    const hero = document.querySelector(".hero");
+    const clouds = document.querySelector(".clouds");
+
+    const imageCandidates = [
+        "Cloud_Walls_Company_-_Cloud_Ceiling_Kit",
+        "Cloud_Walls_Company_-_Cloud_Ceiling_Kit.jpg",
+        "Cloud_Walls_Company_-_Cloud_Ceiling_Kit.jpeg",
+        "Cloud_Walls_Company_-_Cloud_Ceiling_Kit.png",
+        "Cloud_Walls_Company_-_Cloud_Ceiling_Kit.webp"
+    ];
+
+    function applyHeroBackground(src) {
+        hero.style.backgroundImage = `url('${src}')`;
+        clouds.style.backgroundImage = `url('${src}')`;
+    }
+
+    function setUserBackground() {
+        const tryNext = (index) => {
+            if (index >= imageCandidates.length) return;
+
+            const testImg = new Image();
+            const src = imageCandidates[index];
+
+            testImg.onload = () => applyHeroBackground(src);
+            testImg.onerror = () => tryNext(index + 1);
+            testImg.src = src;
+        };
+
+        tryNext(0);
+    }
+
+    setUserBackground();
+
+    document.querySelectorAll(".gallery img").forEach(img => {
+        img.addEventListener("click", () => {
+            popup.style.display = "flex";
             popupImg.src = img.src;
         });
     });
-    
-    popupClose.addEventListener('click', (e) => {
-        e.stopPropagation();
-        popup.classList.remove('active');
-    });
-    
-    popup.addEventListener('click', () => {
-        popup.classList.remove('active');
-    });
-    
-    popupImg.addEventListener('click', (e) => {
-        e.stopPropagation();
-    });
 
-    // Smooth scroll for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
+    popup.addEventListener("click", () => {
+        popup.style.display = "none";
     });
-
-    // Mobile menu toggle
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mainNav = document.getElementById('mainNav');
-    
-    if (mobileMenuBtn && mainNav) {
-        mobileMenuBtn.addEventListener('click', () => {
-            const isOpen = mainNav.classList.toggle('mobile-open');
-            mobileMenuBtn.setAttribute('aria-expanded', isOpen);
-        });
-
-        // Close mobile menu when clicking on a link
-        mainNav.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mainNav.classList.remove('mobile-open');
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
-            });
-        });
-
-        // Keyboard accessibility for mobile menu
-        mobileMenuBtn.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                mobileMenuBtn.click();
-            }
-        });
-    }
 </script>
 
 </body>
