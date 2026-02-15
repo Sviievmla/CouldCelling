@@ -3,10 +3,65 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CloudLux проектира и изгражда луксозни облачни тавани с LED подсветка. Професионален монтаж, индивидуален дизайн и обслужване в цяла България.">
+<meta name="keywords" content="облачни тавани, LED таван, луксозен интериор, cloud ceiling, CloudLux, монтаж облачен таван, дизайнерски тавани">
+<meta name="author" content="CloudLux">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="theme-color" content="#07070b">
+<meta name="format-detection" content="telephone=no">
 <title>CloudLux – Луксозни Облачни Тавани</title>
+<link rel="canonical" href="https://sviievmla.github.io/CouldCelling/">
+<link rel="manifest" href="site.webmanifest">
+<link rel="alternate" hreflang="bg-BG" href="https://sviievmla.github.io/CouldCelling/">
+<link rel="alternate" hreflang="x-default" href="https://sviievmla.github.io/CouldCelling/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="bg_BG">
+<meta property="og:site_name" content="CloudLux">
+<meta property="og:title" content="CloudLux – Луксозни Облачни Тавани">
+<meta property="og:description" content="Луксозни облачни тавани с LED подсветка. Индивидуален проект, професионален монтаж и обслужване в цяла България.">
+<meta property="og:url" content="https://sviievmla.github.io/CouldCelling/">
+<meta property="og:image" content="https://sviievmla.github.io/CouldCelling/Cloud_Walls_Company_-_Cloud_Ceiling_Kit.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CloudLux – Луксозни Облачни Тавани">
+<meta name="twitter:description" content="Луксозни облачни тавани с LED подсветка и професионален монтаж в България.">
+<meta name="twitter:image" content="https://sviievmla.github.io/CouldCelling/Cloud_Walls_Company_-_Cloud_Ceiling_Kit.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "CloudLux",
+    "image": "https://sviievmla.github.io/CouldCelling/Cloud_Walls_Company_-_Cloud_Ceiling_Kit.png",
+    "url": "https://sviievmla.github.io/CouldCelling/",
+    "telephone": "+359877296850",
+    "email": "Sviievmla@gmail.com",
+    "priceRange": "$$",
+    "description": "Луксозни облачни тавани с LED подсветка, индивидуален дизайн и професионален монтаж.",
+    "areaServed": {
+        "@type": "Country",
+        "name": "Bulgaria"
+    },
+    "sameAs": []
+}
+</script>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "CloudLux",
+    "url": "https://sviievmla.github.io/CouldCelling/",
+    "inLanguage": "bg"
+}
+</script>
 
 <style>
     :root {
@@ -37,6 +92,22 @@
         color: var(--text);
         overflow-x: hidden;
         line-height: 1.65;
+    }
+
+    .skip-link {
+        position: absolute;
+        left: -9999px;
+        top: 8px;
+        background: #fff;
+        color: #000;
+        padding: 8px 12px;
+        border-radius: 8px;
+        z-index: 3000;
+        text-decoration: none;
+    }
+
+    .skip-link:focus {
+        left: 8px;
     }
 
     .container {
@@ -294,6 +365,117 @@
         color: #e9edfb;
     }
 
+    .stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 16px;
+    }
+
+    .stat-item {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: rgba(255,255,255,0.04);
+        text-align: center;
+        padding: 14px;
+    }
+
+    .stat-number {
+        font-family: 'Playfair Display', serif;
+        font-size: 30px;
+        line-height: 1;
+        color: #f8fbff;
+        margin-bottom: 6px;
+    }
+
+    .stat-label {
+        font-size: 13px;
+        color: var(--muted);
+    }
+
+    .process-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .process-step {
+        border-radius: 16px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+        padding: 20px;
+    }
+
+    .step-number {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-size: 14px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        background: linear-gradient(120deg, rgba(125,211,255,0.35), rgba(168,85,247,0.35));
+    }
+
+    .process-step h3 {
+        margin: 0 0 8px;
+        font-size: 18px;
+    }
+
+    .process-step p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+    }
+
+    .faq-list {
+        display: grid;
+        gap: 10px;
+    }
+
+    .faq-item {
+        border-radius: 14px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+        overflow: hidden;
+    }
+
+    .faq-question {
+        width: 100%;
+        text-align: left;
+        border: 0;
+        cursor: pointer;
+        background: transparent;
+        color: #f3f6ff;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 16px 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .faq-question span {
+        font-size: 20px;
+        line-height: 1;
+        transition: transform 0.2s ease;
+    }
+
+    .faq-answer {
+        display: none;
+        color: var(--muted);
+        padding: 0 18px 16px;
+    }
+
+    .faq-item.open .faq-answer {
+        display: block;
+    }
+
+    .faq-item.open .faq-question span {
+        transform: rotate(45deg);
+    }
+
     .gallery {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -456,6 +638,14 @@
             grid-template-columns: 1fr;
         }
 
+        .process-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .stats {
+            grid-template-columns: 1fr;
+        }
+
         section {
             padding: 72px 0;
         }
@@ -488,18 +678,23 @@
 
 <body>
 
+<a href="#main-content" class="skip-link">Пропусни до съдържанието</a>
+
 <header id="header">
     <div class="container header-row">
         <div class="logo">CloudLux</div>
         <button class="menu-toggle" id="menuToggle" aria-label="Отвори меню" aria-expanded="false">☰</button>
         <nav id="mainNav">
             <a href="#usluga">Услуги</a>
+            <a href="#proces">Процес</a>
             <a href="#galeria">Галерия</a>
+            <a href="#faq">Въпроси</a>
             <a href="#kontakti">Контакти</a>
         </nav>
     </div>
 </header>
 
+<main id="main-content">
 <div class="hero">
     <div class="clouds"></div>
     <div class="hero-content">
@@ -527,6 +722,44 @@
                 <div class="feature-item">🎨 Индивидуална визия за всеки проект</div>
                 <div class="feature-item">🛠️ Професионален монтаж на място</div>
             </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">24ч</div>
+                    <div class="stat-label">Отговор на запитване</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Индивидуален дизайн</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">BG</div>
+                    <div class="stat-label">Покритие в цяла България</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="proces">
+    <div class="container">
+        <h2>Как работим</h2>
+        <p class="section-sub">Бърз и ясен процес от идея до напълно завършен премиум таван.</p>
+        <div class="process-grid">
+            <article class="process-step">
+                <div class="step-number">1</div>
+                <h3>Консултация и идея</h3>
+                <p>Обсъждаме стил, размери и желано осветление за вашето пространство.</p>
+            </article>
+            <article class="process-step">
+                <div class="step-number">2</div>
+                <h3>Дизайн и оферта</h3>
+                <p>Изготвяме персонална визия и прозрачна ценова оферта по проекта.</p>
+            </article>
+            <article class="process-step">
+                <div class="step-number">3</div>
+                <h3>Професионален монтаж</h3>
+                <p>Изпълняваме финално с чист монтаж, тестове и настройка на осветлението.</p>
+            </article>
         </div>
     </div>
 </section>
@@ -536,10 +769,37 @@
         <h2>Галерия</h2>
         <p class="section-sub">Подбрани реализации с различна атмосфера, цветови сценарии и осветление.</p>
         <div class="gallery">
-            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="Луксозен интериор с неонова атмосфера">
-            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36" alt="Модерен хол с дизайнерско осветление">
-            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85" alt="Уютна стая с артистичен таван">
-            <img src="https://images.unsplash.com/photo-1520880867055-1e30d1cb001c" alt="Премиум интериор с облачен таван">
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="Луксозен интериор с неонова атмосфера" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36" alt="Модерен хол с дизайнерско осветление" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85" alt="Уютна стая с артистичен таван" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1520880867055-1e30d1cb001c" alt="Премиум интериор с облачен таван" loading="lazy" decoding="async">
+        </div>
+    </div>
+</section>
+
+<section id="faq">
+    <div class="container">
+        <h2>Често задавани въпроси</h2>
+        <p class="section-sub">Кратки отговори на най-важните въпроси преди старта на проекта.</p>
+        <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
+            <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <button class="faq-question" itemprop="name">Колко време отнема монтажът?<span>+</span></button>
+                <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <p itemprop="text">Срокът зависи от площта и сложността, но повечето проекти се изпълняват в рамките на 1–3 дни.</p>
+                </div>
+            </article>
+            <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <button class="faq-question" itemprop="name">Може ли да се избира цвят и яркост?<span>+</span></button>
+                <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <p itemprop="text">Да. Настройваме LED системата според желаната атмосфера, включително различни цветови сценарии и интензитет.</p>
+                </div>
+            </article>
+            <article class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                <button class="faq-question" itemprop="name">Работите ли извън големите градове?<span>+</span></button>
+                <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <p itemprop="text">Да. Изпълняваме проекти в цяла България след предварителна уговорка и оглед.</p>
+                </div>
+            </article>
         </div>
     </div>
 </section>
@@ -574,6 +834,7 @@
         </div>
     </div>
 </section>
+</main>
 
 <footer>
     © 2026 CloudLux – Луксозни Облачни Тавани
@@ -639,7 +900,24 @@
                 menuToggle.textContent = "☰";
             });
         });
+
+        document.addEventListener("click", (e) => {
+            const clickedInsideMenu = mainNav.contains(e.target);
+            const clickedToggle = menuToggle.contains(e.target);
+            if (!clickedInsideMenu && !clickedToggle && mainNav.classList.contains("open")) {
+                mainNav.classList.remove("open");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.textContent = "☰";
+            }
+        });
     }
+
+    document.querySelectorAll(".faq-question").forEach(question => {
+        question.addEventListener("click", () => {
+            const item = question.closest(".faq-item");
+            item.classList.toggle("open");
+        });
+    });
 
     document.querySelectorAll(".gallery img").forEach(img => {
         img.addEventListener("click", () => {

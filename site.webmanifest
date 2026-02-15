@@ -1,0 +1,11 @@
+{
+  "name": "CloudLux",
+  "short_name": "CloudLux",
+  "lang": "bg",
+  "start_url": "/CouldCelling/",
+  "display": "standalone",
+  "background_color": "#07070b",
+  "theme_color": "#07070b",
+  "description": "Луксозни облачни тавани с LED подсветка и професионален монтаж.",
+  "icons": []
+}
