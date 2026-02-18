@@ -4,7 +4,7 @@
 
 ## Live URL
 
-https://sviievmla.github.io/CouldCelling/
+https://www.cloudluxbulgaria.online/
 
 ## Основни файлове
 

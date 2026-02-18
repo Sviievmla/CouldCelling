@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sviievmla.github.io/CouldCelling/sitemap.xml
+Sitemap: https://www.cloudluxbulgaria.online/sitemap.xml
