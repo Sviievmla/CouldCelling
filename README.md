@@ -13,7 +13,7 @@ https://sviievmla.github.io/CouldCelling/
 - [robots.txt](robots.txt) – инструкции за crawler-и
 - [sitemap.xml](sitemap.xml) – карта на сайта
 - [site.webmanifest](site.webmanifest) – PWA/brand метаданни
-- [Cloud_Walls_Company_-_Cloud_Ceiling_Kit.png](Cloud_Walls_Company_-_Cloud_Ceiling_Kit.png) – hero/OG изображение
+- [assets/images/gallery/cloud-ceiling-kit.png](assets/images/gallery/cloud-ceiling-kit.png) – hero/OG изображение
 
 ## SEO и техническа настройка
 
