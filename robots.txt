@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
 
+User-agent: Googlebot-Image
+Allow: /assets/images/gallery/
+
 Sitemap: https://www.cloudluxbulgaria.online/sitemap.xml
+Sitemap: https://www.cloudluxbulgaria.online/sitemap-images.xml
+
+Host: www.cloudluxbulgaria.online
